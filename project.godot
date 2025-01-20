@@ -14,6 +14,17 @@ config/name="kGame"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+Master="*res://scripts/master.gd"
+
+[input]
+
+lClick={
+"deadzone": 0.5,
+"events": []
+}
+
 [rendering]
 
 renderer/rendering_method="mobile"
