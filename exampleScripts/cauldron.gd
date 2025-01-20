@@ -17,7 +17,7 @@ func _ready():
 	$Sprite2D.set_animation("default");
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 # func called by objects when clicked and added to pot
 func _addThing(id):

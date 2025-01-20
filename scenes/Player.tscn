@@ -1,0 +1,118 @@
+[gd_scene load_steps=3 format=3 uid="uid://btej26h3gmqfw"]
+
+[ext_resource type="PackedScene" uid="uid://duxyb42raqwr" path="res://scenes/Enemy.tscn" id="1_2g3nk"]
+
+[sub_resource type="GDScript" id="GDScript_yxn0c"]
+script/source = "extends Node2D
+
+@export var boolPrintPlayerMovesToTerminal=false;
+@onready var enemyInfo = $Enemy;
+
+var playerMoves = Array([], TYPE_INT, \"\", null);
+var defenseLen = 3;
+var curDefenseLen = 0;
+var boolPrintedFightOver=0;
+var triFightStatus=0; #0=in progress 1=fight lost 2=fight won
+
+func detectMove():
+	if Input.is_action_just_pressed(\"Up\"):
+		playerMoves.append(1);
+		if boolPrintPlayerMovesToTerminal == true:
+			print(\"up\");
+	if Input.is_action_just_pressed(\"Down\"):
+		playerMoves.append(3);
+		if boolPrintPlayerMovesToTerminal == true:
+			print(\"down\");
+	if Input.is_action_just_pressed(\"Left\"):
+		playerMoves.append(4);
+		if boolPrintPlayerMovesToTerminal == true:
+			print(\"left\");
+	if Input.is_action_just_pressed(\"Right\"):
+		playerMoves.append(2);
+		if boolPrintPlayerMovesToTerminal == true:
+			print(\"right\");
+
+func detectedMovement():
+	if Input.is_action_just_pressed(\"Movement\"):
+		return true;
+	else:
+		return false;
+
+func resetArray():
+	curDefenseLen=0;
+	playerMoves.clear();
+
+func setupFight():
+	defenseLen=enemyInfo.attackLen;
+	resetArray();
+	triFightStatus=0;
+
+func debuggingStuff():
+	if Input.is_action_just_pressed(\"Strike\"):
+		#call player punch action
+		if boolPrintPlayerMovesToTerminal == true:
+			print(\"strike\");
+	if Input.is_action_just_pressed(\"ClearArray\"):
+		resetArray();
+		if boolPrintPlayerMovesToTerminal == true:
+			print(\"cleared array\");
+	if Input.is_action_just_pressed(\"PrintPlayerArray\"):
+		var itera=0;
+		for i in playerMoves:
+			print(playerMoves[itera]);
+			itera+=1;
+
+func checkMove():
+	if boolPrintPlayerMovesToTerminal == true:
+		print(\"curDefense: \");
+		print(playerMoves[curDefenseLen-1]);
+		print(\"curAttack: \");
+		print(enemyInfo.enemyMoves[curDefenseLen-1]);
+		
+	print(playerMoves[curDefenseLen-1]);
+	if playerMoves[curDefenseLen-1] == enemyInfo.enemyMoves[curDefenseLen-1]:
+		print(\"Match!\")
+		if curDefenseLen==enemyInfo.attackLen:
+			triFightStatus=2;
+	else:
+		print(\"Wrong!\")
+		triFightStatus=1;
+
+func printEndFightStatement():
+	print(\"FightOver!\");
+	if triFightStatus==1:
+		print(\"You lost :(\");
+	elif triFightStatus==2:
+		print(\"You won! :D\");
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	setupFight();
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	debuggingStuff();
+	if triFightStatus==0:
+		if detectedMovement() == true:
+			curDefenseLen+=1;
+			detectMove();
+			checkMove();
+	elif boolPrintedFightOver==0:
+		printEndFightStatement();
+		boolPrintedFightOver=1;
+
+
+
+
+
+
+
+"
+
+[node name="Player" type="Node2D"]
+script = SubResource("GDScript_yxn0c")
+
+[node name="Enemy" parent="." instance=ExtResource("1_2g3nk")]
