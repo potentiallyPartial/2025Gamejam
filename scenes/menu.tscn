@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://6lckb77p7twg"]
+[gd_scene load_steps=2 format=3 uid="uid://bara3c25rfaa4"]
 
-[ext_resource type="Script" path="res://scenes/menu.gd" id="1_r2nlg"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_aye65"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_r2nlg")
+script = ExtResource("1_aye65")
 
 [node name="setyourname" type="Label" parent="."]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 16.0
 offset_right = 139.0
@@ -16,6 +17,7 @@ text = "Set Your Name
 Press Enter lock In !"
 
 [node name="nameSeter" type="LineEdit" parent="."]
+layout_mode = 0
 offset_left = 138.0
 offset_top = 12.0
 offset_right = 278.0
@@ -25,6 +27,7 @@ caret_blink = true
 caret_blink_interval = 0.5
 
 [node name="choseFight" type="Label" parent="."]
+layout_mode = 0
 offset_left = 383.0
 offset_top = 10.0
 offset_right = 716.0

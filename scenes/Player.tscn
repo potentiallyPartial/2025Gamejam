@@ -1,12 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://btej26h3gmqfw"]
+[gd_scene load_steps=4 format=3 uid="uid://dd1m8hf7jxwp3"]
 
 [ext_resource type="PackedScene" uid="uid://duxyb42raqwr" path="res://scenes/Enemy.tscn" id="1_2g3nk"]
+[ext_resource type="Texture2D" uid="uid://dtmjlj6cucbpd" path="res://assets/icon.svg" id="2_ejowg"]
 
 [sub_resource type="GDScript" id="GDScript_yxn0c"]
 script/source = "extends Node2D
 
 @export var boolPrintPlayerMovesToTerminal=false;
 @onready var enemyInfo = $Enemy;
+@onready var pUp = $playerUp;
+@onready var pDown = $playerDown;
+@onready var pLeft = $playerLeft;
+@onready var pRight = $playerRight;
+@onready var handShow = $handShow;
 
 var playerMoves = Array([], TYPE_INT, \"\", null);
 var defenseLen = 3;
@@ -17,18 +23,26 @@ var triFightStatus=0; #0=in progress 1=fight lost 2=fight won
 func detectMove():
 	if Input.is_action_just_pressed(\"Up\"):
 		playerMoves.append(1);
+		pUp.set_visible(true);
+		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"up\");
 	if Input.is_action_just_pressed(\"Down\"):
 		playerMoves.append(3);
+		pDown.set_visible(true);
+		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"down\");
 	if Input.is_action_just_pressed(\"Left\"):
 		playerMoves.append(4);
+		pLeft.set_visible(true);
+		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"left\");
 	if Input.is_action_just_pressed(\"Right\"):
 		playerMoves.append(2);
+		pRight.set_visible(true);
+		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"right\");
 
@@ -110,9 +124,42 @@ func _process(delta):
 
 
 
+
+
+func _on_hand_show_timeout():
+	pDown.set_visible(false);
+	pLeft.set_visible(false);
+	pRight.set_visible(false);
+	pUp.set_visible(false);
 "
 
 [node name="Player" type="Node2D"]
 script = SubResource("GDScript_yxn0c")
 
 [node name="Enemy" parent="." instance=ExtResource("1_2g3nk")]
+position = Vector2(565, 357)
+
+[node name="playerUp" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(563, 202)
+texture = ExtResource("2_ejowg")
+
+[node name="playerDown" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(566, 535)
+texture = ExtResource("2_ejowg")
+
+[node name="playerLeft" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(855, 364)
+texture = ExtResource("2_ejowg")
+
+[node name="playerRight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(282, 355)
+texture = ExtResource("2_ejowg")
+
+[node name="handShow" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="handShow" to="." method="_on_hand_show_timeout"]
