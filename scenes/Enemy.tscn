@@ -8,3 +8,7 @@ script = ExtResource("1_7f8jo")
 
 [node name="enemySpright" type="Sprite2D" parent="."]
 texture = ExtResource("2_y7mxf")
+
+[node name="delayTime" type="Timer" parent="."]
+
+[connection signal="timeout" from="delayTime" to="." method="_on_delay_time_timeout"]

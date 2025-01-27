@@ -19,6 +19,9 @@ var defenseLen = 3;
 var curDefenseLen = 0;
 var boolPrintedFightOver=0;
 var triFightStatus=0; #0=in progress 1=fight lost 2=fight won
+var inGrace = false; #this is a bool
+@onready var atackTimer = $atackSpace;
+@onready var graceTimer = $graceper;
 
 func detectMove():
 	if Input.is_action_just_pressed(\"Up\"):
@@ -77,17 +80,23 @@ func debuggingStuff():
 			itera+=1;
 
 func checkMove():
-	if boolPrintPlayerMovesToTerminal == true:
-		print(\"curDefense: \");
-		print(playerMoves[curDefenseLen-1]);
-		print(\"curAttack: \");
-		print(enemyInfo.enemyMoves[curDefenseLen-1]);
+	if playerMoves:
+		if boolPrintPlayerMovesToTerminal == true:
+			print(\"curDefense: \");
+			print(playerMoves[curDefenseLen-1]);
+			print(\"curAttack: \");
+			print(enemyInfo.enemyMoves[curDefenseLen-1]);
 		
-	print(playerMoves[curDefenseLen-1]);
-	if playerMoves[curDefenseLen-1] == enemyInfo.enemyMoves[curDefenseLen-1]:
-		print(\"Match!\")
-		if curDefenseLen==enemyInfo.attackLen:
-			triFightStatus=2;
+		print(playerMoves[curDefenseLen-1]);
+		if playerMoves[curDefenseLen-1] == enemyInfo.enemyMoves[curDefenseLen-1] and inGrace == true:
+			print(\"Match!\")
+			graceTimer.stop();
+			loadNextMove();
+			if curDefenseLen==enemyInfo.attackLen:
+				triFightStatus=2;
+		else:
+			print(\"Wrong!\")
+			triFightStatus=1;
 	else:
 		print(\"Wrong!\")
 		triFightStatus=1;
@@ -99,10 +108,15 @@ func printEndFightStatement():
 	elif triFightStatus==2:
 		print(\"You won! :D\");
 
+func loadNextMove():
+	atackTimer.set_wait_time(enemyInfo.enemyTime[curDefenseLen - 1]);
+	atackTimer.start();
+	print(\"LNM\")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	setupFight();
+	pass
 
 
 
@@ -118,19 +132,23 @@ func _process(delta):
 		printEndFightStatement();
 		boolPrintedFightOver=1;
 
-
-
-
-
-
-
-
-
 func _on_hand_show_timeout():
 	pDown.set_visible(false);
 	pLeft.set_visible(false);
 	pRight.set_visible(false);
 	pUp.set_visible(false);
+
+func _on_atack_space_timeout():
+	inGrace = true;
+	graceTimer.start();
+
+func _on_graceper_timeout():
+	inGrace = false;
+	print(\"over\")
+	if triFightStatus != 2:
+		triFightStatus = 1;
+		checkMove();
+		#fight Func
 "
 
 [node name="Player" type="Node2D"]
@@ -162,4 +180,13 @@ texture = ExtResource("2_ejowg")
 [node name="handShow" type="Timer" parent="."]
 wait_time = 0.25
 
+[node name="atackSpace" type="Timer" parent="."]
+one_shot = true
+
+[node name="graceper" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="handShow" to="." method="_on_hand_show_timeout"]
+[connection signal="timeout" from="atackSpace" to="." method="_on_atack_space_timeout"]
+[connection signal="timeout" from="graceper" to="." method="_on_graceper_timeout"]
