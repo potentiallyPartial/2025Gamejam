@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd1m8hf7jxwp3"]
+[gd_scene load_steps=4 format=3 uid="uid://btej26h3gmqfw"]
 
 [ext_resource type="PackedScene" uid="uid://duxyb42raqwr" path="res://scenes/Enemy.tscn" id="1_2g3nk"]
 [ext_resource type="Texture2D" uid="uid://dtmjlj6cucbpd" path="res://assets/icon.svg" id="2_ejowg"]
@@ -147,7 +147,8 @@ func _on_atack_space_timeout():
 	inGrace = true;
 	graceTimer.start();
 	Master.isFight = true;
-	#enemyInfo.setSpright();
+	if curDefenseLen < defenseLen:
+		enemyInfo.setSpright();
 	
 func _on_graceper_timeout():
 	inGrace = false;
@@ -161,17 +162,17 @@ func _on_graceper_timeout():
 script = SubResource("GDScript_yxn0c")
 
 [node name="Enemy" parent="." instance=ExtResource("1_2g3nk")]
-position = Vector2(565, 357)
+position = Vector2(556, 411)
 scale = Vector2(0.7, 0.7)
 
 [node name="playerUp" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(563, 202)
+position = Vector2(599, 124)
 texture = ExtResource("2_ejowg")
 
 [node name="playerDown" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(566, 535)
+position = Vector2(585, 569)
 texture = ExtResource("2_ejowg")
 
 [node name="playerLeft" type="Sprite2D" parent="."]

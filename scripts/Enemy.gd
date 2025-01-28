@@ -2,7 +2,7 @@ extends Node2D
 
 #@export var minMoves = 3;
 #@export var maxMoves = 40;
-@export var attackLen = 3;
+@export var attackLen = 5;
 @export var enemySelected = 0;
 @export var minWait = 0;
 @export var maxWait = 1;
@@ -25,6 +25,9 @@ var enemyTime = Array([], TYPE_FLOAT, "", null);
 func makeNumEnemyMoves():
 	for i in attackLen:
 		enemyMoves.append(rng.randi_range(1, 4));
+		if i > 0:
+			while enemyMoves[i] == enemyMoves[i-1]:
+				enemyMoves[i]=rng.randi_range(1, 4);
 
 func makeNumEnemyTime():
 	for i in attackLen:
@@ -77,11 +80,11 @@ func setSpright():
 		if enemyMoves[player.curDefenseLen] == 1:
 			spright.set_frame_and_progress(8,0);
 		if enemyMoves[player.curDefenseLen] == 2:
-			spright.set_frame_and_progress(6,0);
+			spright.set_frame_and_progress(5,0);
 		if enemyMoves[player.curDefenseLen] == 3:
 			spright.set_frame_and_progress(7,0);
 		if enemyMoves[player.curDefenseLen] == 4:
-			spright.set_frame_and_progress(5,0);
+			spright.set_frame_and_progress(6,0);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
