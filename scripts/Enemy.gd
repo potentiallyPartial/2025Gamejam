@@ -10,6 +10,8 @@ extends Node2D
 var curAtack = 0;
 @onready var delTimer = $delayTime;
 @onready var player = get_parent();
+@onready var spright = $enemySpright;
+
 
 var rng = RandomNumberGenerator.new(); # add randomize function to ready
 var enemyMoves = Array([], TYPE_INT, "", null);
@@ -61,7 +63,25 @@ func _ready():
 	#printEnemyMoves();
 	print("\n")
 
-
+func setSpright():
+	if Master.isFight == false:
+		if enemyMoves[curAtack - 1] == 1:
+			spright.set_frame_and_progress(3,0);
+		if enemyMoves[curAtack - 1] == 2:
+			spright.set_frame_and_progress(2,0);
+		if enemyMoves[curAtack - 1] == 3:
+			spright.set_frame_and_progress(4,0);
+		if enemyMoves[curAtack - 1] == 4:
+			spright.set_frame_and_progress(1,0);
+	if Master.isFight == true:
+		if enemyMoves[player.curDefenseLen] == 1:
+			spright.set_frame_and_progress(8,0);
+		if enemyMoves[player.curDefenseLen] == 2:
+			spright.set_frame_and_progress(6,0);
+		if enemyMoves[player.curDefenseLen] == 3:
+			spright.set_frame_and_progress(7,0);
+		if enemyMoves[player.curDefenseLen] == 4:
+			spright.set_frame_and_progress(5,0);
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -71,7 +91,10 @@ func _on_delay_time_timeout():
 	if curAtack < attackLen:
 		print(enemyMoves[curAtack]);
 		curAtack += 1;
+		spright.set_frame_and_progress(0,0);
+		setSpright();
 		loadPose();
+		
 
 func setStats():
 	attackLen = Master.fighterNumAtacks;

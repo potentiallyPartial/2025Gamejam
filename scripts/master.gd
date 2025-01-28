@@ -1,5 +1,6 @@
 extends Node
 
+var isFight = false;
 
 var playerName = "Anon";
 

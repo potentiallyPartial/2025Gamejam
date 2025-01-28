@@ -27,24 +27,28 @@ func detectMove():
 	if Input.is_action_just_pressed(\"Up\"):
 		playerMoves.append(1);
 		pUp.set_visible(true);
+		#enemyInfo.spright.set_frame_and_progress(8,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"up\");
 	if Input.is_action_just_pressed(\"Down\"):
 		playerMoves.append(3);
 		pDown.set_visible(true);
+		#enemyInfo.spright.set_frame_and_progress(7,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"down\");
 	if Input.is_action_just_pressed(\"Left\"):
 		playerMoves.append(4);
 		pLeft.set_visible(true);
+		#enemyInfo.spright.set_frame_and_progress(6,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"left\");
 	if Input.is_action_just_pressed(\"Right\"):
 		playerMoves.append(2);
 		pRight.set_visible(true);
+		#enemyInfo.spright.set_frame_and_progress(5,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
 			print(\"right\");
@@ -91,6 +95,7 @@ func checkMove():
 		if playerMoves[curDefenseLen-1] == enemyInfo.enemyMoves[curDefenseLen-1] and inGrace == true:
 			print(\"Match!\")
 			graceTimer.stop();
+			inGrace = false;
 			loadNextMove();
 			if curDefenseLen==enemyInfo.attackLen:
 				triFightStatus=2;
@@ -111,7 +116,6 @@ func printEndFightStatement():
 func loadNextMove():
 	atackTimer.set_wait_time(enemyInfo.enemyTime[curDefenseLen - 1]);
 	atackTimer.start();
-	print(\"LNM\")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -137,14 +141,16 @@ func _on_hand_show_timeout():
 	pLeft.set_visible(false);
 	pRight.set_visible(false);
 	pUp.set_visible(false);
+	enemyInfo.spright.set_frame_and_progress(0,0);
 
 func _on_atack_space_timeout():
 	inGrace = true;
 	graceTimer.start();
-
+	Master.isFight = true;
+	#enemyInfo.setSpright();
+	
 func _on_graceper_timeout():
 	inGrace = false;
-	print(\"over\")
 	if triFightStatus != 2:
 		triFightStatus = 1;
 		checkMove();
@@ -156,6 +162,7 @@ script = SubResource("GDScript_yxn0c")
 
 [node name="Enemy" parent="." instance=ExtResource("1_2g3nk")]
 position = Vector2(565, 357)
+scale = Vector2(0.7, 0.7)
 
 [node name="playerUp" type="Sprite2D" parent="."]
 visible = false
@@ -169,12 +176,12 @@ texture = ExtResource("2_ejowg")
 
 [node name="playerLeft" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(855, 364)
+position = Vector2(251, 349)
 texture = ExtResource("2_ejowg")
 
 [node name="playerRight" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(282, 355)
+position = Vector2(919, 361)
 texture = ExtResource("2_ejowg")
 
 [node name="handShow" type="Timer" parent="."]
