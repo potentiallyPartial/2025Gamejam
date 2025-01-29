@@ -15,7 +15,7 @@ script/source = "extends Node2D
 @onready var handShow = $handShow;
 
 var playerMoves = Array([], TYPE_INT, \"\", null);
-var defenseLen = 3;
+var defenseLen = 17;
 var curDefenseLen = 0;
 var boolPrintedFightOver=0;
 var triFightStatus=0; #0=in progress 1=fight lost 2=fight won
