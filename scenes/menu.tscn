@@ -50,10 +50,9 @@ offset_left = 10.0
 offset_top = 84.0
 offset_right = 745.0
 offset_bottom = 636.0
-item_count = 3
-item_0/text = "Fighter 1"
-item_1/text = "Fighter2"
-item_2/text = "Fighter 3"
+item_count = 2
+item_0/text = "Pigeon"
+item_1/text = "Gnome"
 
 [connection signal="text_submitted" from="nameSeter" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

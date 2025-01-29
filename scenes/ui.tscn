@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_jb6sg")
 
 [node name="playerHP" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 10.0
 offset_top = 48.0
@@ -23,6 +24,7 @@ value = 2.0
 show_percentage = false
 
 [node name="oponentHP" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 634.0
 offset_top = 47.0
@@ -47,19 +49,19 @@ vertical_alignment = 1
 
 [node name="playerName" type="Label" parent="."]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 5.0
-offset_right = 508.0
-offset_bottom = 44.0
+offset_left = 8.0
+offset_top = 23.0
+offset_right = 507.0
+offset_bottom = 62.0
 text = "Anon"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="fighterName" type="Label" parent="."]
 layout_mode = 0
-offset_left = 636.0
-offset_top = 6.0
-offset_right = 1132.0
-offset_bottom = 43.0
+offset_left = 635.0
+offset_top = 25.0
+offset_right = 1131.0
+offset_bottom = 62.0
 horizontal_alignment = 1
 vertical_alignment = 1

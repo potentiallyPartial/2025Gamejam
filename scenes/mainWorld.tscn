@@ -1,11 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://xfn5iqe6375d"]
+[gd_scene load_steps=5 format=3 uid="uid://xfn5iqe6375d"]
 
 [ext_resource type="Script" path="res://scripts/mainWorld.gd" id="1_mtsx8"]
+[ext_resource type="Texture2D" uid="uid://bj24c808aujlb" path="res://assets/bkgRough.png" id="2_rp1ga"]
 [ext_resource type="PackedScene" uid="uid://btej26h3gmqfw" path="res://scenes/Player.tscn" id="3_isrva"]
 [ext_resource type="PackedScene" uid="uid://btttbr6dtmnej" path="res://scenes/ui.tscn" id="4_m1ssw"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mtsx8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(590, 323)
+scale = Vector2(0.5, 0.393902)
+texture = ExtResource("2_rp1ga")
 
 [node name="Player" parent="." instance=ExtResource("3_isrva")]
 

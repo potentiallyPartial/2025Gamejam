@@ -13,12 +13,13 @@ var fighterTimeingMax = 1;
 var texture = 0;
 
 #fighter 1
-var f1 = ["pigon",1,1,5,0]
-var f2 = ["theTings",4,1,2,1]
+var f1 = ["pigon",3,1,2,"piggen"]
+var f2 = ["gnome",4,.5,2,"Gnome"]
 
 var roster = [f1,f2]
 
 func setFighter():
+	print(fighterIndex[0])
 	fighterName = roster[fighterIndex[0]][0];
 	fighterNumAtacks = roster[fighterIndex[0]][1];
 	fighterTimeingMin = roster[fighterIndex[0]][2];

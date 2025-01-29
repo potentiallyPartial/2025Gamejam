@@ -63,6 +63,7 @@ func _ready():
 	makeNumEnemyMoves();
 	makeNumEnemyTime();
 	loadPose();
+	setStats()
 	#printEnemyMoves();
 	print("\n")
 
@@ -103,7 +104,7 @@ func setStats():
 	attackLen = Master.fighterNumAtacks;
 	minWait = Master.fighterTimeingMin;
 	maxWait = Master.fighterTimeingMax;
-	
+	spright.set_animation(Master.texture);
 #figure out textures for enimies
 #get enimies stats transfered
 #set up helth system (Pos scrap this if need time)
