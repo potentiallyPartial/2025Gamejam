@@ -135,6 +135,16 @@ func _process(delta):
 	elif boolPrintedFightOver==0:
 		printEndFightStatement();
 		boolPrintedFightOver=1;
+		gameOver();
+
+func gameOver():
+	resetArray();
+	enemyInfo.clearEnemyMoves();
+	enemyInfo.clearEnemyTimes()
+	triFightStatus = 0;
+	enemyInfo.curAtack = 0;
+	Master.isFight = false;
+	get_tree().change_scene_to_file(\"res://scenes/menu.tscn\");
 
 func _on_hand_show_timeout():
 	pDown.set_visible(false);

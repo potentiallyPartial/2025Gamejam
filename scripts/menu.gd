@@ -22,7 +22,8 @@ func fighterUpdate():
 	print("FighterUpdated")
 
 func _on_button_pressed():
-	Master.setFighter();
-	get_tree().change_scene_to_file("res://scenes/mainWorld.tscn");
+	if Master.fighterIndex:
+		Master.setFighter();
+		get_tree().change_scene_to_file("res://scenes/mainWorld.tscn");
 
 	
