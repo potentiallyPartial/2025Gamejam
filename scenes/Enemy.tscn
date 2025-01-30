@@ -1,25 +1,34 @@
-[gd_scene load_steps=22 format=3 uid="uid://duxyb42raqwr"]
+[gd_scene load_steps=31 format=3 uid="uid://duxyb42raqwr"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_7f8jo"]
-[ext_resource type="Texture2D" uid="uid://ckgr2ssoh370e" path="res://assets/fighters/gnome/gnome.png" id="2_7q8je"]
+[ext_resource type="Texture2D" uid="uid://csr2vu030dysq" path="res://assets/fighters/gnome/gnome.png" id="2_7q8je"]
 [ext_resource type="Texture2D" uid="uid://c1jqtj2pqr0f7" path="res://assets/fighters/piggen/pDefault.png" id="2_72lhc"]
-[ext_resource type="Texture2D" uid="uid://b151lk6ne8jgo" path="res://assets/fighters/gnome/poseR.png" id="3_5l22f"]
+[ext_resource type="Texture2D" uid="uid://dpgq5p26xryx" path="res://assets/fighters/gnome/poseR.png" id="3_5l22f"]
 [ext_resource type="Texture2D" uid="uid://b5j73rib26bkd" path="res://assets/fighters/piggen/pDown.png" id="3_305pn"]
 [ext_resource type="Texture2D" uid="uid://dddkwd5kdny1d" path="res://assets/fighters/piggen/pDownA.png" id="4_abrk7"]
-[ext_resource type="Texture2D" uid="uid://bqgvjw6mpn3s4" path="res://assets/fighters/gnome/poseL.png" id="4_j4q0g"]
+[ext_resource type="Texture2D" uid="uid://du78vle663sby" path="res://assets/fighters/gnome/poseL.png" id="4_j4q0g"]
 [ext_resource type="Texture2D" uid="uid://c7o0tt62p1sut" path="res://assets/fighters/piggen/phit.png" id="5_byxj6"]
-[ext_resource type="Texture2D" uid="uid://cvs2rcxn20stx" path="res://assets/fighters/gnome/poseUp.png" id="5_fifbk"]
+[ext_resource type="Texture2D" uid="uid://gsidjkm1g6qr" path="res://assets/fighters/gnome/poseUp.png" id="5_fifbk"]
 [ext_resource type="Texture2D" uid="uid://b1pgg6cxn644d" path="res://assets/fighters/piggen/pLeft.png" id="6_7aedg"]
-[ext_resource type="Texture2D" uid="uid://c62avgeqbicd0" path="res://assets/fighters/gnome/poseDown.png" id="6_ln6es"]
-[ext_resource type="Texture2D" uid="uid://dp1kx8pc3f657" path="res://assets/fighters/gnome/AtackR.png" id="7_6uiob"]
+[ext_resource type="Texture2D" uid="uid://7umlfrgjgtrq" path="res://assets/fighters/gnome/poseDown.png" id="6_ln6es"]
+[ext_resource type="Texture2D" uid="uid://djowm53dkggrk" path="res://assets/fighters/gnome/AtackR.png" id="7_6uiob"]
 [ext_resource type="Texture2D" uid="uid://rpcb2i1vl2gn" path="res://assets/fighters/piggen/pLeftA.png" id="7_derlm"]
 [ext_resource type="Texture2D" uid="uid://bwmkdcsh400ma" path="res://assets/fighters/piggen/pRight.png" id="8_aofu8"]
-[ext_resource type="Texture2D" uid="uid://cwwcmy2lp45tb" path="res://assets/fighters/gnome/AtackL.png" id="8_t1tku"]
-[ext_resource type="Texture2D" uid="uid://n8eo0qptehdo" path="res://assets/fighters/gnome/AtackDown.png" id="9_0j7rq"]
+[ext_resource type="Texture2D" uid="uid://c7vcrkjv6clao" path="res://assets/fighters/gnome/AtackL.png" id="8_t1tku"]
+[ext_resource type="Texture2D" uid="uid://cattnu1jdfhwd" path="res://assets/fighters/gnome/AtackDown.png" id="9_0j7rq"]
 [ext_resource type="Texture2D" uid="uid://bd1g1mqhtay4s" path="res://assets/fighters/piggen/pRightA.png" id="9_tqcjw"]
 [ext_resource type="Texture2D" uid="uid://d4aops6yowe1o" path="res://assets/fighters/piggen/pUP.png" id="10_fb5pd"]
-[ext_resource type="Texture2D" uid="uid://dmgeqgu0nv3uo" path="res://assets/fighters/gnome/AtackUp.png" id="10_mo4cc"]
+[ext_resource type="Texture2D" uid="uid://4wj7h232clg2" path="res://assets/fighters/gnome/AtackUp.png" id="10_mo4cc"]
 [ext_resource type="Texture2D" uid="uid://b3qdqu08twqog" path="res://assets/fighters/piggen/pUpA.png" id="11_oa6r3"]
+[ext_resource type="Texture2D" uid="uid://d1v2pms05rj67" path="res://assets/fighters/tWiz/LucasNeutralOption1.png" id="21_jfb1v"]
+[ext_resource type="Texture2D" uid="uid://d1kclocfjy6e" path="res://assets/fighters/tWiz/LucasLeft.png" id="22_il35q"]
+[ext_resource type="Texture2D" uid="uid://vvsejsjcai6d" path="res://assets/fighters/tWiz/LucasRight.png" id="23_oq180"]
+[ext_resource type="Texture2D" uid="uid://crg25nghidleh" path="res://assets/fighters/tWiz/LucasUpPrep.png" id="24_julr3"]
+[ext_resource type="Texture2D" uid="uid://c2o6wr4boq3pi" path="res://assets/fighters/tWiz/LucasDownPrepPockets.png" id="25_oh6pn"]
+[ext_resource type="Texture2D" uid="uid://lk2a20rejklu" path="res://assets/fighters/tWiz/LucasRightAttack.png" id="26_q7bv6"]
+[ext_resource type="Texture2D" uid="uid://cwqg776vaqvqb" path="res://assets/fighters/tWiz/LucasLeftAttack.png" id="27_m25c8"]
+[ext_resource type="Texture2D" uid="uid://cc4b145c7jpqp" path="res://assets/fighters/tWiz/Lucas&FrogScreamInTerror.png" id="28_wc12e"]
+[ext_resource type="Texture2D" uid="uid://c3mhwdtvfhi17" path="res://assets/fighters/tWiz/LucasUpAttack.png" id="29_6o2bk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7tc3c"]
 animations = [{
@@ -89,6 +98,38 @@ animations = [{
 "loop": true,
 "name": &"piggen",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_jfb1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_il35q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_oq180")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_julr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_oh6pn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_q7bv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_m25c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_wc12e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_6o2bk")
+}],
+"loop": true,
+"name": &"tWiz",
+"speed": 5.0
 }]
 
 [node name="Enemy" type="Node2D"]
@@ -97,7 +138,7 @@ minWait = 1
 
 [node name="enemySpright" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7tc3c")
-animation = &"Gnome"
+animation = &"tWiz"
 
 [node name="delayTime" type="Timer" parent="."]
 

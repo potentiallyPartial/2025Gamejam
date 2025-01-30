@@ -1,7 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://btej26h3gmqfw"]
+[gd_scene load_steps=9 format=3 uid="uid://btej26h3gmqfw"]
 
 [ext_resource type="PackedScene" uid="uid://duxyb42raqwr" path="res://scenes/Enemy.tscn" id="1_2g3nk"]
-[ext_resource type="Texture2D" uid="uid://dtmjlj6cucbpd" path="res://assets/icon.svg" id="2_ejowg"]
+[ext_resource type="Texture2D" uid="uid://dewise3dpkp0o" path="res://assets/handUp.png" id="2_kkoc4"]
+[ext_resource type="Texture2D" uid="uid://blnxghnpywe1c" path="res://assets/handDown.png" id="3_phqmn"]
+[ext_resource type="Texture2D" uid="uid://cc36im87ewro1" path="res://assets/handL.png" id="4_jn5nm"]
+[ext_resource type="Texture2D" uid="uid://f5gqwsewawih" path="res://assets/handR.png" id="5_60vdy"]
+[ext_resource type="Texture2D" uid="uid://c0f27pyhjtvbm" path="res://assets/victgory.png" id="6_rrg2l"]
+[ext_resource type="Texture2D" uid="uid://cxy4icx7uyss5" path="res://assets/Defeat.png" id="7_fvi2t"]
 
 [sub_resource type="GDScript" id="GDScript_yxn0c"]
 script/source = "extends Node2D
@@ -13,6 +18,9 @@ script/source = "extends Node2D
 @onready var pLeft = $playerLeft;
 @onready var pRight = $playerRight;
 @onready var handShow = $handShow;
+@onready var gOver = $gOver;
+@onready var Win = $Win;
+@onready var Lose = $Lose;
 
 var playerMoves = Array([], TYPE_INT, \"\", null);
 var defenseLen = 17;
@@ -138,13 +146,12 @@ func _process(delta):
 		gameOver();
 
 func gameOver():
-	resetArray();
-	enemyInfo.clearEnemyMoves();
-	enemyInfo.clearEnemyTimes()
-	triFightStatus = 0;
-	enemyInfo.curAtack = 0;
-	Master.isFight = false;
-	get_tree().change_scene_to_file(\"res://scenes/menu.tscn\");
+	if triFightStatus == 1:
+		Lose.set_visible(true);
+	if triFightStatus == 2:
+		Win.set_visible(true);
+	gOver.start();
+	print(\"timerStart\")
 
 func _on_hand_show_timeout():
 	pDown.set_visible(false);
@@ -166,6 +173,18 @@ func _on_graceper_timeout():
 		triFightStatus = 1;
 		checkMove();
 		#fight Func
+
+func _on_g_over_timeout():
+	print(\"timerDone\")
+	resetArray();
+	enemyInfo.clearEnemyMoves();
+	enemyInfo.clearEnemyTimes()
+	triFightStatus = 0;
+	enemyInfo.curAtack = 0;
+	Master.isFight = false;
+	$Win.set_visible(false);
+	$Lose.set_visible(false);
+	get_tree().change_scene_to_file(\"res://scenes/menu.tscn\");
 "
 
 [node name="Player" type="Node2D"]
@@ -177,23 +196,27 @@ scale = Vector2(0.7, 0.7)
 
 [node name="playerUp" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(599, 124)
-texture = ExtResource("2_ejowg")
+position = Vector2(601, 161)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_kkoc4")
 
 [node name="playerDown" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(585, 569)
-texture = ExtResource("2_ejowg")
+position = Vector2(575, 483)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_phqmn")
 
 [node name="playerLeft" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(251, 349)
-texture = ExtResource("2_ejowg")
+position = Vector2(236, 369)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_jn5nm")
 
 [node name="playerRight" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(919, 361)
-texture = ExtResource("2_ejowg")
+position = Vector2(976, 334)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_60vdy")
 
 [node name="handShow" type="Timer" parent="."]
 wait_time = 0.25
@@ -205,6 +228,21 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="Win" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(553, 289)
+texture = ExtResource("6_rrg2l")
+
+[node name="Lose" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(562, 272)
+texture = ExtResource("7_fvi2t")
+
+[node name="gOver" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="timeout" from="handShow" to="." method="_on_hand_show_timeout"]
 [connection signal="timeout" from="atackSpace" to="." method="_on_atack_space_timeout"]
 [connection signal="timeout" from="graceper" to="." method="_on_graceper_timeout"]
+[connection signal="timeout" from="gOver" to="." method="_on_g_over_timeout"]
