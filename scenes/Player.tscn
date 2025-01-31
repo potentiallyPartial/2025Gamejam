@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://btej26h3gmqfw"]
+[gd_scene load_steps=10 format=3 uid="uid://btej26h3gmqfw"]
 
 [ext_resource type="PackedScene" uid="uid://duxyb42raqwr" path="res://scenes/Enemy.tscn" id="1_2g3nk"]
 [ext_resource type="Texture2D" uid="uid://dewise3dpkp0o" path="res://assets/handUp.png" id="2_kkoc4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://f5gqwsewawih" path="res://assets/handR.png" id="5_60vdy"]
 [ext_resource type="Texture2D" uid="uid://c0f27pyhjtvbm" path="res://assets/victgory.png" id="6_rrg2l"]
 [ext_resource type="Texture2D" uid="uid://cxy4icx7uyss5" path="res://assets/Defeat.png" id="7_fvi2t"]
+[ext_resource type="AudioStream" uid="uid://cr5goytwgygiv" path="res://assets/sounds/block-6839.mp3" id="8_uk2w5"]
 
 [sub_resource type="GDScript" id="GDScript_yxn0c"]
 script/source = "extends Node2D
@@ -21,6 +22,7 @@ script/source = "extends Node2D
 @onready var gOver = $gOver;
 @onready var Win = $Win;
 @onready var Lose = $Lose;
+@onready var block = $blk;
 
 var playerMoves = Array([], TYPE_INT, \"\", null);
 var defenseLen = 17;
@@ -35,6 +37,7 @@ func detectMove():
 	if Input.is_action_just_pressed(\"Up\"):
 		playerMoves.append(1);
 		pUp.set_visible(true);
+		block.play();
 		#enemyInfo.spright.set_frame_and_progress(8,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
@@ -42,6 +45,7 @@ func detectMove():
 	if Input.is_action_just_pressed(\"Down\"):
 		playerMoves.append(3);
 		pDown.set_visible(true);
+		block.play();
 		#enemyInfo.spright.set_frame_and_progress(7,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
@@ -49,6 +53,7 @@ func detectMove():
 	if Input.is_action_just_pressed(\"Left\"):
 		playerMoves.append(4);
 		pLeft.set_visible(true);
+		block.play();
 		#enemyInfo.spright.set_frame_and_progress(6,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
@@ -56,6 +61,7 @@ func detectMove():
 	if Input.is_action_just_pressed(\"Right\"):
 		playerMoves.append(2);
 		pRight.set_visible(true);
+		block.play();
 		#enemyInfo.spright.set_frame_and_progress(5,0);
 		handShow.start();
 		if boolPrintPlayerMovesToTerminal == true:
@@ -241,6 +247,9 @@ texture = ExtResource("7_fvi2t")
 [node name="gOver" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="blk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uk2w5")
 
 [connection signal="timeout" from="handShow" to="." method="_on_hand_show_timeout"]
 [connection signal="timeout" from="atackSpace" to="." method="_on_atack_space_timeout"]

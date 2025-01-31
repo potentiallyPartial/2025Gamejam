@@ -1,34 +1,52 @@
-[gd_scene load_steps=31 format=3 uid="uid://duxyb42raqwr"]
+[gd_scene load_steps=49 format=3 uid="uid://duxyb42raqwr"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_7f8jo"]
 [ext_resource type="Texture2D" uid="uid://csr2vu030dysq" path="res://assets/fighters/gnome/gnome.png" id="2_7q8je"]
 [ext_resource type="Texture2D" uid="uid://c1jqtj2pqr0f7" path="res://assets/fighters/piggen/pDefault.png" id="2_72lhc"]
+[ext_resource type="Texture2D" uid="uid://dfti61by35tb1" path="res://assets/fighters/canMan/atackD.PNG" id="2_m787u"]
+[ext_resource type="Texture2D" uid="uid://b40n6yv8dyqet" path="res://assets/fighters/canMan/atackL.PNG" id="3_4kird"]
 [ext_resource type="Texture2D" uid="uid://dpgq5p26xryx" path="res://assets/fighters/gnome/poseR.png" id="3_5l22f"]
 [ext_resource type="Texture2D" uid="uid://b5j73rib26bkd" path="res://assets/fighters/piggen/pDown.png" id="3_305pn"]
 [ext_resource type="Texture2D" uid="uid://dddkwd5kdny1d" path="res://assets/fighters/piggen/pDownA.png" id="4_abrk7"]
+[ext_resource type="Texture2D" uid="uid://bv3v016ghap6u" path="res://assets/fighters/canMan/atackR.PNG" id="4_istgs"]
 [ext_resource type="Texture2D" uid="uid://du78vle663sby" path="res://assets/fighters/gnome/poseL.png" id="4_j4q0g"]
 [ext_resource type="Texture2D" uid="uid://c7o0tt62p1sut" path="res://assets/fighters/piggen/phit.png" id="5_byxj6"]
 [ext_resource type="Texture2D" uid="uid://gsidjkm1g6qr" path="res://assets/fighters/gnome/poseUp.png" id="5_fifbk"]
+[ext_resource type="Texture2D" uid="uid://du7ydtn5y2ath" path="res://assets/fighters/canMan/atackU.PNG" id="5_qxdgl"]
 [ext_resource type="Texture2D" uid="uid://b1pgg6cxn644d" path="res://assets/fighters/piggen/pLeft.png" id="6_7aedg"]
+[ext_resource type="Texture2D" uid="uid://dtp5r433ytfb7" path="res://assets/fighters/canMan/Default.PNG" id="6_ijbpd"]
 [ext_resource type="Texture2D" uid="uid://7umlfrgjgtrq" path="res://assets/fighters/gnome/poseDown.png" id="6_ln6es"]
+[ext_resource type="Texture2D" uid="uid://dcba4bi52hfqx" path="res://assets/fighters/canMan/prepDown.PNG" id="7_3aalw"]
 [ext_resource type="Texture2D" uid="uid://djowm53dkggrk" path="res://assets/fighters/gnome/AtackR.png" id="7_6uiob"]
 [ext_resource type="Texture2D" uid="uid://rpcb2i1vl2gn" path="res://assets/fighters/piggen/pLeftA.png" id="7_derlm"]
+[ext_resource type="Texture2D" uid="uid://cwata742febg4" path="res://assets/fighters/canMan/prepL.PNG" id="8_7wn2p"]
 [ext_resource type="Texture2D" uid="uid://bwmkdcsh400ma" path="res://assets/fighters/piggen/pRight.png" id="8_aofu8"]
 [ext_resource type="Texture2D" uid="uid://c7vcrkjv6clao" path="res://assets/fighters/gnome/AtackL.png" id="8_t1tku"]
 [ext_resource type="Texture2D" uid="uid://cattnu1jdfhwd" path="res://assets/fighters/gnome/AtackDown.png" id="9_0j7rq"]
 [ext_resource type="Texture2D" uid="uid://bd1g1mqhtay4s" path="res://assets/fighters/piggen/pRightA.png" id="9_tqcjw"]
+[ext_resource type="Texture2D" uid="uid://ddddkuhv7thhj" path="res://assets/fighters/canMan/prepR.PNG" id="9_ueog6"]
+[ext_resource type="Texture2D" uid="uid://csaqik31i01nr" path="res://assets/fighters/canMan/prepU.PNG" id="10_2kgr2"]
 [ext_resource type="Texture2D" uid="uid://d4aops6yowe1o" path="res://assets/fighters/piggen/pUP.png" id="10_fb5pd"]
 [ext_resource type="Texture2D" uid="uid://4wj7h232clg2" path="res://assets/fighters/gnome/AtackUp.png" id="10_mo4cc"]
 [ext_resource type="Texture2D" uid="uid://b3qdqu08twqog" path="res://assets/fighters/piggen/pUpA.png" id="11_oa6r3"]
 [ext_resource type="Texture2D" uid="uid://d1v2pms05rj67" path="res://assets/fighters/tWiz/LucasNeutralOption1.png" id="21_jfb1v"]
+[ext_resource type="Texture2D" uid="uid://mefmk6y5lefj" path="res://assets/fighters/spiders/atackDown.PNG" id="21_wup1j"]
+[ext_resource type="Texture2D" uid="uid://chf7nb0oxkgcu" path="res://assets/fighters/spiders/atackL.PNG" id="22_3bb7x"]
 [ext_resource type="Texture2D" uid="uid://d1kclocfjy6e" path="res://assets/fighters/tWiz/LucasLeft.png" id="22_il35q"]
+[ext_resource type="Texture2D" uid="uid://c0alwjvncmil" path="res://assets/fighters/spiders/atackR.PNG" id="23_1vk6v"]
 [ext_resource type="Texture2D" uid="uid://vvsejsjcai6d" path="res://assets/fighters/tWiz/LucasRight.png" id="23_oq180"]
+[ext_resource type="Texture2D" uid="uid://dpkehnusm8krf" path="res://assets/fighters/spiders/atackU.PNG" id="24_hb3wq"]
 [ext_resource type="Texture2D" uid="uid://crg25nghidleh" path="res://assets/fighters/tWiz/LucasUpPrep.png" id="24_julr3"]
 [ext_resource type="Texture2D" uid="uid://c2o6wr4boq3pi" path="res://assets/fighters/tWiz/LucasDownPrepPockets.png" id="25_oh6pn"]
+[ext_resource type="Texture2D" uid="uid://dfi8g8nxkteex" path="res://assets/fighters/spiders/default.PNG" id="25_x0fcw"]
+[ext_resource type="Texture2D" uid="uid://cu1xy3oe3xt72" path="res://assets/fighters/spiders/poseR.PNG" id="26_gw7v8"]
 [ext_resource type="Texture2D" uid="uid://lk2a20rejklu" path="res://assets/fighters/tWiz/LucasRightAttack.png" id="26_q7bv6"]
+[ext_resource type="Texture2D" uid="uid://bu5c5x47kyf6i" path="res://assets/fighters/spiders/posR.PNG" id="27_cjoba"]
 [ext_resource type="Texture2D" uid="uid://cwqg776vaqvqb" path="res://assets/fighters/tWiz/LucasLeftAttack.png" id="27_m25c8"]
+[ext_resource type="Texture2D" uid="uid://bfo5l2vsjlt7y" path="res://assets/fighters/spiders/prepDown.PNG" id="28_hfci3"]
 [ext_resource type="Texture2D" uid="uid://cc4b145c7jpqp" path="res://assets/fighters/tWiz/Lucas&FrogScreamInTerror.png" id="28_wc12e"]
 [ext_resource type="Texture2D" uid="uid://c3mhwdtvfhi17" path="res://assets/fighters/tWiz/LucasUpAttack.png" id="29_6o2bk"]
+[ext_resource type="Texture2D" uid="uid://c0wrtakgy8bhx" path="res://assets/fighters/spiders/prepUp.PNG" id="29_bic8g"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7tc3c"]
 animations = [{
@@ -101,6 +119,70 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_ijbpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7wn2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ueog6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2kgr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3aalw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_istgs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4kird")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m787u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qxdgl")
+}],
+"loop": true,
+"name": &"rubish",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_wup1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_3bb7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_1vk6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_hb3wq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_x0fcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gw7v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cjoba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_hfci3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_bic8g")
+}],
+"loop": true,
+"name": &"spider",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("21_jfb1v")
 }, {
 "duration": 1.0,
@@ -138,7 +220,8 @@ minWait = 1
 
 [node name="enemySpright" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7tc3c")
-animation = &"tWiz"
+animation = &"spider"
+frame = 1
 
 [node name="delayTime" type="Timer" parent="."]
 

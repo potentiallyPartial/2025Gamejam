@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://xfn5iqe6375d"]
+[gd_scene load_steps=6 format=3 uid="uid://xfn5iqe6375d"]
 
 [ext_resource type="Script" path="res://scripts/mainWorld.gd" id="1_mtsx8"]
 [ext_resource type="Texture2D" uid="uid://bj24c808aujlb" path="res://assets/bkgRough.png" id="2_rp1ga"]
 [ext_resource type="PackedScene" uid="uid://btej26h3gmqfw" path="res://scenes/Player.tscn" id="3_isrva"]
 [ext_resource type="PackedScene" uid="uid://btttbr6dtmnej" path="res://scenes/ui.tscn" id="4_m1ssw"]
+[ext_resource type="AudioStream" uid="uid://cm5dhulafxrro" path="res://assets/sounds/fightSong(1).wav" id="5_6qi1v"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mtsx8")
@@ -20,3 +21,7 @@ offset_left = 1.0
 offset_top = -1.0
 offset_right = 1.0
 offset_bottom = -1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6qi1v")
+autoplay = true

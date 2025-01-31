@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b47wey1ofehau"]
+[gd_scene load_steps=9 format=3 uid="uid://b47wey1ofehau"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4nmvy"]
 [ext_resource type="Texture2D" uid="uid://c3ggndsrut84b" path="res://assets/mmBkg.png" id="1_58xwi"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dufomvisu6pqw" path="res://assets/x.png" id="3_m3wln"]
 [ext_resource type="Texture2D" uid="uid://cr20esxl3cf4q" path="res://assets/start.PNG" id="4_f7re5"]
 [ext_resource type="Texture2D" uid="uid://c34r7hiibn3fy" path="res://assets/IMG_1301.PNG" id="5_8khse"]
+[ext_resource type="AudioStream" uid="uid://dkjgpausyhgkv" path="res://assets/sounds/genButon.mp3" id="7_aps55"]
+[ext_resource type="AudioStream" uid="uid://3yrmlhsxn6fe" path="res://assets/sounds/MenuSong.wav" id="8_baagu"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -106,6 +108,19 @@ Right: D or arrow Right
 Down: S or arrow Down
 Left: A or arrow Left"
 
+[node name="butPress" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_aps55")
+
+[node name="menuSong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_baagu")
+volume_db = -8.0
+autoplay = true
+
+[node name="sceneChange" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="instructions" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="sceneChange" to="." method="_on_scene_change_timeout"]
