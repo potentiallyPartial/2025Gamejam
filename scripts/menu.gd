@@ -39,3 +39,7 @@ func _on_scene_change_timeout():
 
 func _on_item_list_item_selected(index):
 	but.play();
+
+
+func _on_texture_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn");

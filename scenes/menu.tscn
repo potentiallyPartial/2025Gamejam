@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfabgl4pb85p1"]
+[gd_scene load_steps=11 format=3 uid="uid://dfabgl4pb85p1"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_aye65"]
 [ext_resource type="Texture2D" uid="uid://btc41rhlia5vo" path="res://assets/fightOff.png" id="2_xvy8e"]
@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://b1k5c40mge3mj" path="res://assets/sounds/fight.mp3" id="5_c2r5h"]
 [ext_resource type="AudioStream" uid="uid://3yrmlhsxn6fe" path="res://assets/sounds/MenuSong.wav" id="6_n1u4l"]
 [ext_resource type="Texture2D" uid="uid://c8rea4qma03aw" path="res://assets/cyf.PNG" id="7_moseu"]
+[ext_resource type="Texture2D" uid="uid://c64rlljhl3pig" path="res://assets/mnung.PNG" id="8_13gmy"]
+[ext_resource type="Texture2D" uid="uid://ca0tp41pxstn4" path="res://assets/mnug.PNG" id="9_rhtcp"]
 
 [sub_resource type="Theme" id="Theme_1x8y4"]
 ItemList/colors/font_color = Color(0.153571, 0.713832, 0.888142, 1)
@@ -44,10 +46,10 @@ caret_blink_interval = 0.5
 
 [node name="Button" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 760.0
-offset_top = 471.0
-offset_right = 1485.0
-offset_bottom = 766.0
+offset_left = 715.0
+offset_top = 417.0
+offset_right = 1440.0
+offset_bottom = 712.0
 scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("2_xvy8e")
 texture_hover = ExtResource("3_nek0h")
@@ -91,8 +93,19 @@ offset_bottom = 288.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_moseu")
 
+[node name="menu" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 430.0
+offset_right = 661.0
+offset_bottom = 725.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("8_13gmy")
+texture_hover = ExtResource("9_rhtcp")
+
 [connection signal="text_submitted" from="nameSeter" to="." method="_on_line_edit_text_submitted"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="gui_input" from="ItemList" to="." method="_on_item_list_gui_input"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="timeout" from="sceneChange" to="." method="_on_scene_change_timeout"]
+[connection signal="pressed" from="menu" to="." method="_on_texture_button_pressed"]
