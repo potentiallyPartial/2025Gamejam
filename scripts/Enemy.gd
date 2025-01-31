@@ -113,7 +113,7 @@ func setStats():
 #get enimies stats transfered
 #set up helth system (Pos scrap this if need time)
 
-#things we need 
+#things we need  s
 #more oponents
 #hands
 #backgrounds 
