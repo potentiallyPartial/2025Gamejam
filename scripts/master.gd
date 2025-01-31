@@ -17,8 +17,9 @@ var f1 = ["pigon",3,1,2,"piggen"]
 var f2 = ["gnome",4,.8,2,"Gnome"]
 var f3 = ["rubish",5,1,1,"rubish"]
 var f4 = ["Techno Wizard",5,1,3,"tWiz"]
+var f5 = ["Spooder",4,.5,1.25,"spider"]
 
-var roster = [f1,f2,f3,f4]
+var roster = [f1,f2,f3,f4,f5]
 
 func setFighter():
 	print(fighterIndex[0])

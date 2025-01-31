@@ -19,6 +19,10 @@ config/icon="res://assets/icon.svg"
 
 Master="*res://scripts/master.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="kGame"

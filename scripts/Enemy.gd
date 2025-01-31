@@ -11,6 +11,9 @@ var curAtack = 0;
 @onready var delTimer = $delayTime;
 @onready var player = get_parent();
 @onready var spright = $enemySpright;
+@onready var fightScreenT = $fightScreenTimer
+@onready var fightScr = $fightScreen
+@onready var extrTime = $extraTime
 
 
 var rng = RandomNumberGenerator.new(); # add randomize function to ready
@@ -51,8 +54,9 @@ func loadPose():
 		delTimer.set_wait_time(enemyTime[curAtack]);
 		delTimer.start()
 	else :
-		print("FIGHT")
-		player.loadNextMove();
+		print("FIGHT");
+		extrTime.start();
+		
 		
 
 # Called when the node enters the scene tree for the first time.
@@ -115,3 +119,14 @@ func setStats():
 #backgrounds 
 #Ui art
 #win screen
+
+
+func _on_fight_screen_timer_timeout():
+	fightScr.set_visible(false);
+	player.loadNextMove();
+
+
+
+func _on_extra_time_timeout():
+	fightScr.set_visible(true);
+	fightScreenT.start();

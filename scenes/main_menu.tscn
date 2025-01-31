@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4nmvy"]
 [ext_resource type="Texture2D" uid="uid://c3ggndsrut84b" path="res://assets/mmBkg.png" id="1_58xwi"]
-[ext_resource type="Texture2D" uid="uid://cvta0npkx4nl1" path="res://assets/page.png" id="2_jxl3b"]
 [ext_resource type="Texture2D" uid="uid://dufomvisu6pqw" path="res://assets/x.png" id="3_m3wln"]
 [ext_resource type="Texture2D" uid="uid://cr20esxl3cf4q" path="res://assets/start.PNG" id="4_f7re5"]
+[ext_resource type="Texture2D" uid="uid://q12d0ghuoqfj" path="res://assets/pageBkgrnd.png" id="5_0u34h"]
 [ext_resource type="Texture2D" uid="uid://c34r7hiibn3fy" path="res://assets/IMG_1301.PNG" id="5_8khse"]
 [ext_resource type="AudioStream" uid="uid://dkjgpausyhgkv" path="res://assets/sounds/genButon.mp3" id="7_aps55"]
 [ext_resource type="AudioStream" uid="uid://3yrmlhsxn6fe" path="res://assets/sounds/MenuSong.wav" id="8_baagu"]
@@ -55,58 +55,89 @@ texture = ExtResource("5_8khse")
 [node name="Panel" type="Panel" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 184.0
-offset_top = 13.0
-offset_right = 996.0
-offset_bottom = 614.0
+offset_left = 165.0
+offset_top = 24.0
+offset_right = 977.0
+offset_bottom = 625.0
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 0
-offset_right = 812.0
-offset_bottom = 600.0
-texture = ExtResource("2_jxl3b")
+offset_left = -309.0
+offset_top = -334.0
+offset_right = 1080.0
+offset_bottom = 687.0
+texture = ExtResource("5_0u34h")
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 0
-offset_right = 608.0
-offset_bottom = 608.0
+offset_left = 810.0
+offset_top = 503.0
+offset_right = 1418.0
+offset_bottom = 1111.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_m3wln")
 flat = true
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 88.0
-offset_top = 7.0
-offset_right = 783.0
-offset_bottom = 56.0
+offset_left = -7.0
+offset_top = 19.0
+offset_right = 365.0
+offset_bottom = 120.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Welcome to [game]
- You have found the legendary scroll (magazine)
- to turn yourself into a being able to block ANYTHING!!!!"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = "Welcome to Fortified Fists!
+ You have found the legendary scroll (magazine) to turn yourself into a weapon able to block ANYTHING!!!!"
+autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 114.0
-offset_right = 217.0
-offset_bottom = 206.0
+offset_left = -8.0
+offset_top = 136.0
+offset_right = 350.0
+offset_bottom = 718.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Now you must go
- and chalange the world
- with your new power
+theme_override_font_sizes/font_size = 26
+text = "
+First, your opponents will perform a set of warmups indcating the direction of their atack, then they will launch heir assult!
 
-Your oponents will proform a set of moves indcating the direction of their atack then they will launch
-their asult!
+All you need to do is block up, down, left, or right at the correct time to defeat them!
 
-All You need to do is block up, down, left, or Right at the correct time to defeat them!
-Dont get discuraged even masters need practice!
 
-Up: W or arrow up
+
+
+"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 263.0
+offset_right = 827.0
+offset_bottom = 571.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "Don't get discuraged, even masters need practice!
+
+Now you must go
+ and challenge the world
+ with your new power..."
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 46.0
+offset_right = 754.0
+offset_bottom = 277.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "Up: W or arrow up
 Right: D or arrow Right
 Down: S or arrow Down
-Left: A or arrow Left"
+Left: A or arrow Left
+"
+autowrap_mode = 2
 
 [node name="butPress" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aps55")
