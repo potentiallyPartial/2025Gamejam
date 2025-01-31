@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://duxyb42raqwr"]
+[gd_scene load_steps=49 format=3 uid="uid://duxyb42raqwr"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_7f8jo"]
 [ext_resource type="Texture2D" uid="uid://csr2vu030dysq" path="res://assets/fighters/gnome/gnome.png" id="2_7q8je"]
@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://cc4b145c7jpqp" path="res://assets/fighters/tWiz/Lucas&FrogScreamInTerror.png" id="28_wc12e"]
 [ext_resource type="Texture2D" uid="uid://c3mhwdtvfhi17" path="res://assets/fighters/tWiz/LucasUpAttack.png" id="29_6o2bk"]
 [ext_resource type="Texture2D" uid="uid://c0wrtakgy8bhx" path="res://assets/fighters/spiders/prepUp.PNG" id="29_bic8g"]
-[ext_resource type="Texture2D" uid="uid://bodninodamyfo" path="res://assets/fightstart.png" id="48_8p73k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7tc3c"]
 animations = [{
@@ -152,31 +151,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("25_x0fcw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_cjoba")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_gw7v8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_bic8g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_hfci3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_1vk6v")
+"texture": ExtResource("21_wup1j")
 }, {
 "duration": 1.0,
 "texture": ExtResource("22_3bb7x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_wup1j")
+"texture": ExtResource("23_1vk6v")
 }, {
 "duration": 1.0,
 "texture": ExtResource("24_hb3wq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_x0fcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gw7v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cjoba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_hfci3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_bic8g")
 }],
 "loop": true,
 "name": &"spider",
@@ -222,19 +221,8 @@ minWait = 1
 [node name="enemySpright" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7tc3c")
 animation = &"spider"
+frame = 1
 
 [node name="delayTime" type="Timer" parent="."]
 
-[node name="fightScreenTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="fightScreen" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("48_8p73k")
-
-[node name="extraTime" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="timeout" from="delayTime" to="." method="_on_delay_time_timeout"]
-[connection signal="timeout" from="fightScreenTimer" to="." method="_on_fight_screen_timer_timeout"]
-[connection signal="timeout" from="extraTime" to="." method="_on_extra_time_timeout"]
